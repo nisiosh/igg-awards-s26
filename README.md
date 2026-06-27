@@ -1,3 +1,1 @@
-# Gastropolis Awards
-Summer 2026
-<hr>
+<h1>Gastropolis Awards - Summer 2026</h1>
