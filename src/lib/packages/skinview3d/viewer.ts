@@ -630,7 +630,7 @@ export class SkinViewer {
 				this.playerObject.skin.visible = true;
 			}
 
-			if (options.ears === true || options.ears == "load-only") {
+			if (options.ears === true || options.ears==="load-only") {
 				loadEarsToCanvasFromSkin(this.earsCanvas, source);
 				this.recreateEarsTexture();
 				if (options.ears === true) {
@@ -917,7 +917,7 @@ export class SkinViewer {
 			!this._renderPaused &&
 			!this._disposed &&
 			!this.renderer.getContext().isContextLost() &&
-			this.animationID == null
+			this.animationID===null
 		) {
 			this.animationID = window.requestAnimationFrame(() => this.draw());
 		}

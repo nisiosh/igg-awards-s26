@@ -85,14 +85,51 @@
             viewer = undefined;
         };
     });
+
+    interface Pos2D { x: number, y: number }
+    const SELECT_THRESHOLD = 5;
+    let lastPos: Pos2D | undefined;
+    let moveAmount = 0;
+
+    function trimCanvasMouseDown(event: MouseEvent) {
+        lastPos = { x: event.clientX, y: event.clientY };
+        moveAmount = 0;
+    }
+
+    function trimCanvasMouseUp() {
+        if (!onclick || lastPos === undefined) return;
+        if (moveAmount < SELECT_THRESHOLD) onclick();
+        lastPos = undefined;
+    }
+
+    function trimCanvasMouseLeave() {
+        lastPos = undefined;
+    }
+
+    function mouseMove(event: MouseEvent) {
+        if (moveAmount >= SELECT_THRESHOLD || lastPos === undefined) return;
+        moveAmount += getDistance({ x: event.clientX, y: event.clientY }, lastPos);
+    }
+
+    function getDistance(pos1: Pos2D, pos2: Pos2D) {
+        return Math.hypot(pos2.x - pos1.x, pos2.y - pos1.y);
+    }
+
 </script>
 
+<svelte:document onmousemove={mouseMove}></svelte:document>
+
 <div class="card" class:selected data-asset-type={assetType}>
-    <button class="option-button" title={`Vote ${name}${assetType == "trim" ? ` (${creator})` : ""}`} {onclick}>
-        {#if assetType == "img"}
+    <button class="option-button" title={`Vote ${name}${assetType==="trim" ? ` (${creator})` : ""}`} onclick={assetType==="trim" ? null : onclick}>
+        {#if assetType==="img"}
             <img src={asset} alt={asset} class="option-asset" />
-        {:else if assetType == "trim"}
-            <canvas bind:this={canvas}></canvas>
+        {:else if assetType==="trim"}
+            <canvas 
+                onmousedown={trimCanvasMouseDown} 
+                onmouseup={trimCanvasMouseUp}
+                onmouseleave={trimCanvasMouseLeave}
+                bind:this={canvas}
+                ></canvas>
         {/if}
     </button>
     <p class="option-name">{name}</p>

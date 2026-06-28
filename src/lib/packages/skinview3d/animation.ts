@@ -347,7 +347,7 @@ export class CrouchAnimation extends PlayerAnimation {
 			const pr2 = this.progress;
 			let t = (this.progress * 18 * this.hitAnimationSpeed) / this.speed;
 
-			if (this.speed == 0) {
+			if (this.speed===0) {
 				t = 0;
 			}
 
@@ -430,7 +430,7 @@ export class SwimAnimation extends PlayerAnimation {
 		const i = seg.i;
 		if (!this.lock) {
 			let k = 1.3;
-			if (i == 0 && p * k < 1) {
+			if (i===0 && p * k < 1) {
 				player.position.y = -5 * p * k;
 				player.rotation.x = (1.3 * p * Math.PI) / 2;
 				player.skin.head.rotation.x = (-Math.PI / 4) * p * k;

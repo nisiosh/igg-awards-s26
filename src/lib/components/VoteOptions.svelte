@@ -21,7 +21,7 @@
             asset={`nominee-assets/${assetPath}/${option.asset}`}
             name={option.name}
             creator={option.creator}
-            selected={selected == i}
+            selected={selected===i}
             onclick={() => selected = i}
         />
     {/each}
