@@ -87,7 +87,7 @@
     });
 
     interface Pos2D { x: number, y: number }
-    const SELECT_THRESHOLD = 5;
+    const SELECT_THRESHOLD = 10;
     let lastPos: Pos2D | undefined;
     let moveAmount = 0;
 
