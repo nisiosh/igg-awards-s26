@@ -1,5 +1,6 @@
 <script lang="ts">
     import { ArmorType, SkinViewer } from "$lib/packages/skinview3d/skinview3d.js";
+    import generateTrim from "$lib/packages/skinview3d/utils/generateTrim.js";
     import { onMount } from "svelte";
 
     let { asset, assetType="image", name, creator, selected, onclick }: { 
@@ -23,8 +24,16 @@
             height: parent.clientHeight,
             skin: "/trims/skins/steve.png",
         });
-        let netheriteArmor = new ArmorType("/trims/armor/netherite_layer_1.png", "/trims/armor/netherite_layer_2.png")
-        viewer.loadArmor(netheriteArmor);
+        (async () => {
+            let trimMain = await generateTrim("/trims/armor/netherite_layer_1.png", {
+                armor: "helmet", trim: "bolt", material: "amethyst"
+            });
+            let trimLeggings = await generateTrim("/trims/armor/netherite_layer_2.png", {
+                armor: "leggings", trim: "bolt", material: "amethyst"
+            });
+            const netheriteArmor = new ArmorType(trimMain, trimLeggings);
+            viewer.loadArmor(netheriteArmor);
+        })();
 
         const resizeObserver = new ResizeObserver(() => {
             viewer.width = parent.clientWidth;
