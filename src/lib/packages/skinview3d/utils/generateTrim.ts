@@ -1,61 +1,57 @@
 import type { ArmorTrim } from "./types.ts";
 
-export default async function generateTrim(armorMaterial: string, trimData: ArmorTrim): Promise<HTMLCanvasElement> {
+export default async function generateTrim(
+    armorMaterial: string,
+    pieces: ArmorTrim[]
+): Promise<HTMLCanvasElement> {
+    if (pieces.length === 0) throw new Error("no pieces provided");
+
+    const isLeggings = pieces[0].armor === "leggings";
+
     const armorImage = new Image();
     armorImage.crossOrigin = "anonymous";
-    armorImage.src = trimData.armor == "leggings" 
+    armorImage.src = isLeggings
         ? `/trims/armor/${armorMaterial}_layer_2.png`
         : `/trims/armor/${armorMaterial}_layer_1.png`;
     await armorImage.decode();
 
-    const trimImage = new Image();
-    trimImage.crossOrigin = "anonymous";
-    trimImage.src = trimData.armor == "leggings"
-        ? `/trims/design/trim_leggings/${trimData.trim}.png`
-        : `/trims/design/trim_main/${trimData.trim}.png`;
-    await trimImage.decode();
-
-    const paletteName = resolvePaletteName(trimData.material, armorMaterial);
-    const trimCanvas = await recolorTrim(
-        trimImage,
-        "/trims/palettes/trim_palette.png",
-        `/trims/palettes/${trimData.material}.png`
-    )
-
     const canvas = document.createElement("canvas");
     canvas.width = armorImage.naturalWidth;
     canvas.height = armorImage.naturalHeight;
-
     const context = canvas.getContext("2d");
     if (!context) throw new Error("2d context not available");
 
     context.drawImage(armorImage, 0, 0);
-    switch (trimData.armor) {
-        case "helmet": {
-            context.drawImage(trimCanvas,
-                0, 0, 32, 15,
-                0, 0, 32, 15
-            );
-            break;
-        };
-        case "chestplate": {
-            context.drawImage(trimCanvas,
-                16, 16, 40, 16,
-                16, 16, 40, 16
-            );
-            break;
-        };
-        case "leggings": {
-            context.drawImage(trimCanvas, 0, 0);
-            break;
-        };
-        case "boots": {
-            context.drawImage(trimCanvas,
-                0, 16, 16, 16,
-                0, 16, 16, 16
-            );
-            break;
-        };
+
+    for (const piece of pieces) {
+        const trimImage = new Image();
+        trimImage.crossOrigin = "anonymous";
+        trimImage.src = piece.armor === "leggings"
+            ? `/trims/design/trim_leggings/${piece.trim}.png`
+            : `/trims/design/trim_main/${piece.trim}.png`;
+        await trimImage.decode();
+
+        const paletteName = resolvePaletteName(piece.material, armorMaterial);
+        const trimCanvas = await recolorTrim(
+            trimImage,
+            "/trims/palettes/trim_palette.png",
+            `/trims/palettes/${paletteName}.png`
+        );
+
+        switch (piece.armor) {
+            case "helmet":
+                context.drawImage(trimCanvas, 0, 0, 32, 15, 0, 0, 32, 15);
+                break;
+            case "chestplate":
+                context.drawImage(trimCanvas, 16, 16, 40, 16, 16, 16, 40, 16);
+                break;
+            case "boots":
+                context.drawImage(trimCanvas, 0, 16, 16, 16, 0, 16, 16, 16);
+                break;
+            case "leggings":
+                context.drawImage(trimCanvas, 0, 0);
+                break;
+        }
     }
 
     return canvas;

@@ -1,6 +1,0 @@
-{
-    "helmet": { "trim": "flow", "material": "diamond" },
-    "chestplate": { "trim": "flow", "material": "diamond" },
-    "leggings": { "trim": "flow", "material": "diamond" },
-    "boots": { "trim": "flow", "material": "diamond" }
-}

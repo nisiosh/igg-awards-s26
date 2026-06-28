@@ -1,53 +1,95 @@
 <script lang="ts">
-    import { ArmorType, SkinViewer } from "$lib/packages/skinview3d/skinview3d.js";
+    import {
+        ArmorType,
+        SkinViewer,
+    } from "$lib/packages/skinview3d/skinview3d.js";
     import generateTrim from "$lib/packages/skinview3d/utils/generateTrim.js";
-    import { onMount } from "svelte";
+    import type { ArmorTrim } from "$lib/packages/skinview3d/utils/types.js";
+    import type { TrimData } from "$lib/types/OptionTypes.js";
 
-    let { asset, assetType="image", name, creator, selected, onclick }: { 
-        asset: string,
-        assetType: "image" | "trim",
-        name: string,
-        creator?: string,
-        selected: boolean,
-        onclick?: () => {}
+    let {
+        asset,
+        name,
+        creator,
+        selected,
+        onclick,
+    }: {
+        asset: string;
+        name: string;
+        creator?: string;
+        selected: boolean;
+        onclick?: () => {};
     } = $props();
+    let assetType: "img" | "trim" | undefined = $state();
+    $effect(() => {
+        if (asset.endsWith(".trim.json")) {
+            assetType = "trim";
+        } else {
+            assetType = "img";
+        }
+    });
 
     let canvas: HTMLCanvasElement | undefined = $state();
-    let viewer: SkinViewer;
+    let viewer: SkinViewer | undefined;
 
-    onMount(() => {
-        if (!canvas) return;
+    $effect(() => {
+        if (!canvas || assetType !== "trim") return;
+
         const parent = canvas.parentElement!;
-        viewer = new SkinViewer({
-            canvas,
-            width: parent.clientWidth,
-            height: parent.clientHeight,
-            skin: "/trims/skins/steve.png",
-        });
+        let disposed = false;
+
         (async () => {
-            let trimMain = await generateTrim("netherite", {
-                armor: "helmet", trim: "bolt", material: "amethyst"
+            const trimData: TrimData = await fetch(asset).then((response) => response.json());
+            if (disposed) return;
+
+            viewer = new SkinViewer({
+                canvas,
+                width: parent.clientWidth,
+                height: parent.clientHeight,
+                skin: trimData.skin ? `/trims/skins/${trimData.skin}.png` : "/trims/skins/steve.png",
             });
-            let trimLeggings = await generateTrim("netherite", {
-                armor: "leggings", trim: "bolt", material: "amethyst"
-            });
-            const netheriteArmor = new ArmorType(trimMain, trimLeggings);
-            viewer.loadArmor(netheriteArmor);
+
+            if (!trimData.armor_material) return;
+
+            let trimMain: HTMLCanvasElement | string;
+            let trimLeggings: HTMLCanvasElement | string;
+
+            const mainPieces: ArmorTrim[] = [];
+            if (trimData.helmet) mainPieces.push({ ...trimData.helmet, armor: "helmet" });
+            if (trimData.chestplate) mainPieces.push({ ...trimData.chestplate, armor: "chestplate" });
+            if (trimData.boots) mainPieces.push({ ...trimData.boots, armor: "boots" });
+
+            trimMain = mainPieces.length
+                ? await generateTrim(trimData.armor_material, mainPieces)
+                : `/trims/armor/${trimData.armor_material}_layer_1.png`;
+
+            trimLeggings = trimData.leggings
+                ? await generateTrim(trimData.armor_material, [{ ...trimData.leggings, armor: "leggings" }])
+                : `/trims/armor/${trimData.armor_material}_layer_2.png`;
+
+            const armor = new ArmorType(trimMain, trimLeggings);
+            viewer.loadArmor(armor);
         })();
 
         const resizeObserver = new ResizeObserver(() => {
+            if (!viewer) return;
             viewer.width = parent.clientWidth;
             viewer.height = parent.clientHeight;
         });
         resizeObserver.observe(parent);
 
-        return () => { resizeObserver.disconnect(); viewer?.dispose(); };
+        return () => {
+            disposed = true;
+            resizeObserver.disconnect();
+            viewer?.dispose();
+            viewer = undefined;
+        };
     });
 </script>
 
-<div class="card" class:selected={selected} data-asset-type={assetType}>
-    <button class="option-button" title={`Vote ${name}`} onclick={onclick}>
-        {#if assetType == "image"}
+<div class="card" class:selected data-asset-type={assetType}>
+    <button class="option-button" title={`Vote ${name}`} {onclick}>
+        {#if assetType == "img"}
             <img src={asset} alt={asset} class="option-asset" />
         {:else if assetType == "trim"}
             <canvas bind:this={canvas}></canvas>
@@ -114,5 +156,4 @@
         font-size: 0.8rem;
         color: var(--secondary);
     }
-
 </style>

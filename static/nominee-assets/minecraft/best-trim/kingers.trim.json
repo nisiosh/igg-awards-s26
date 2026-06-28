@@ -1,0 +1,7 @@
+{
+    "armor_material": "netherite",
+    "helmet": { "trim": "sentry", "material": "copper" },
+    "chestplate": { "trim": "snout", "material": "copper" },
+    "leggings": { "trim": "sentry", "material": "copper" },
+    "boots": { "trim": "dune", "material": "copper" }
+}

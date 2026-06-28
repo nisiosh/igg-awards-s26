@@ -1,0 +1,7 @@
+{
+    "armor_material": "netherite",
+    "helmet": { "trim": "flow", "material": "redstone" },
+    "chestplate": { "trim": "flow", "material": "redstone" },
+    "leggings": { "trim": "flow", "material": "redstone" },
+    "boots": { "trim": "flow", "material": "redstone" }
+}

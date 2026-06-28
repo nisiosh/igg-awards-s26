@@ -4,7 +4,7 @@ export type ModelType = "default" | "slim";
 export interface ArmorTrim {
   armor: "helmet" | "chestplate" | "leggings" | "boots",
   trim: string,
-  palette: string
+  material: string
 }
 
 export function isTextureSource(value: unknown): value is TextureSource {

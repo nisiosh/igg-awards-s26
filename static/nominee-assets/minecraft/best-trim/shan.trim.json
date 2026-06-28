@@ -1,0 +1,7 @@
+{
+    "armor_material": "netherite",
+    "helmet": { "trim": "coast", "material": "diamond" },
+    "chestplate": { "trim": "snout", "material": "diamond" },
+    "leggings": { "trim": "host", "material": "diamond" },
+    "boots": { "trim": "bolt", "material": "diamond" }
+}

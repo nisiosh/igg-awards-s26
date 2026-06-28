@@ -26,6 +26,31 @@
                     "asset": "best-place-faded/patville-barn.jpeg"
                 }
             ]
+        },
+        {
+            "title": "Best Armor Trim",
+            "options": [
+                {
+                    "name": "Coast, Snout, Host, Bolt",
+                    "creator": "Shan",
+                    "asset": "best-trim/shan.trim.json"
+                },
+                {
+                    "name": "Sentry, Snout, Sentry, Dune",
+                    "creator": "Kingers",
+                    "asset": "best-trim/kingers.trim.json"
+                },
+                {
+                    "name": "Flow",
+                    "creator": "Pat",
+                    "asset": "best-trim/pat.trim.json"
+                },
+                {
+                    "name": "Coast, Snout, Host, Bolt",
+                    "creator": "Dima",
+                    "asset": "best-trim/dima.trim.json"
+                }
+            ]
         }
     ]
 }
