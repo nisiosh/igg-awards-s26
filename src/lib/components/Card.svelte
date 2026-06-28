@@ -48,6 +48,7 @@
                 height: parent.clientHeight,
                 skin: trimData.skin ? `/trims/skins/${trimData.skin}.png` : "/trims/skins/steve.png",
             });
+            viewer.controls.enableZoom = false;
 
             if (!trimData.armor_material) return;
 
@@ -73,7 +74,7 @@
 
         const resizeObserver = new ResizeObserver(() => {
             if (!viewer) return;
-            viewer.width = parent.clientWidth;
+            viewer.width = parent.clientWidth - 20;
             viewer.height = parent.clientHeight;
         });
         resizeObserver.observe(parent);
@@ -176,9 +177,15 @@
         object-fit: cover;
     }
 
+    .card[data-asset-type="trim"] .option-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .option-button canvas {
         height: 30rem;
-        width: 100%;
+        width: calc(100% - 20px);
         min-height: 0;
     }
 

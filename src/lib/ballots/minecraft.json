@@ -32,27 +32,27 @@
             "subtitle": "Drag a trim to rotate it",
             "options": [
                 {
-                    "name": "Gold Silence",
+                    "name": "Silence",
                     "creator": "Liam",
                     "asset": "best-trim/liam.trim.json"
                 },
                 {
-                    "name": "Copper Sentry, Snout, Sentry, Dune",
+                    "name": "Sentry, Snout, Sentry, Dune",
                     "creator": "Kingers",
                     "asset": "best-trim/kingers.trim.json"
                 },
                 {
-                    "name": "Redstone Flow",
+                    "name": "Flow",
                     "creator": "Pat",
                     "asset": "best-trim/pat.trim.json"
                 },
                 {
-                    "name": "Diamond Coast, Snout, Host, Bolt",
+                    "name": "Coast, Snout, Host, Bolt",
                     "creator": "Shan",
                     "asset": "best-trim/shan.trim.json"
                 },
                 {
-                    "name": "Quartz Flow",
+                    "name": "Flow",
                     "creator": "Dima",
                     "asset": "best-trim/dima.trim.json"
                 }
