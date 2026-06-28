@@ -163,7 +163,7 @@
     .card.selected .option-button {
         border: 1px solid var(--selected-option-color);
         box-shadow: var(--selected-option-color-glow) 0px 0px 15px 4px;
-        outline: 3px solid var(--selected-option-color);
+        outline: 5px solid var(--selected-option-color);
     }
     .card:not(.selected):hover .option-button {
         box-shadow: rgba(255, 255, 255, 25%) 0px 0px 20px 4px;
