@@ -88,7 +88,7 @@
 </script>
 
 <div class="card" class:selected data-asset-type={assetType}>
-    <button class="option-button" title={`Vote ${name}`} {onclick}>
+    <button class="option-button" title={`Vote ${name}${assetType == "trim" ? ` (${creator})` : ""}`} {onclick}>
         {#if assetType == "img"}
             <img src={asset} alt={asset} class="option-asset" />
         {:else if assetType == "trim"}
