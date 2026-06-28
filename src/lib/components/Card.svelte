@@ -193,10 +193,19 @@
     .option-name {
         margin: 0;
         margin-top: 0.5rem;
+        transition: all 20ms linear;
     }
 
     .creator {
         margin: 0;
         margin-top: 0.1rem;
+        transition: all 20ms linear;
+    }
+
+    .card.selected .option-name {
+        color: var(--selected-option-text-color);
+    }
+    .card.selected .creator {
+        color: var(--selected-option-text-secondary-color);
     }
 </style>

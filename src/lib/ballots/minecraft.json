@@ -57,6 +57,56 @@
                     "asset": "best-trim/dima.trim.json"
                 }
             ]
+        },
+        {
+            "title": "Best Concept",
+            "options": [
+                {
+                    "name": "Shan York Arch",
+                    "creator": "Shan",
+                    "asset": "best-concept/shan-york-arch.jpeg"
+                },
+                {
+                    "name": "PistolWhip Statue",
+                    "creator": "Kingers",
+                    "asset": "best-concept/wistol-statue.jpeg"
+                },
+                {
+                    "name": "Backrooms Tower",
+                    "creator": "Pat, Shan",
+                    "asset": "best-concept/backrooms-tower.jpeg"
+                },
+                {
+                    "name": "Blocks Statue",
+                    "creator": "Pat",
+                    "asset": "placeholder.jpeg"
+                }
+            ]
+        },
+         {
+            "title": "Best Destroyed Build (RIP)",
+            "options": [
+                {
+                    "name": "C House",
+                    "creator": "Dima",
+                    "asset": "best-destroyed-build/c-house.jpeg"
+                },
+                {
+                    "name": "Epstein Temple",
+                    "creator": "Pat, Shan",
+                    "asset": "best-destroyed-build/epstein-temple.jpeg"
+                },
+                {
+                    "name": "Liam Gaff (Early Gas)",
+                    "creator": "Liam",
+                    "asset": "best-destroyed-build/liam-gaff-early.jpeg"
+                },
+                {
+                    "name": "Liam Gaff (Late Gas)",
+                    "creator": "Liam",
+                    "asset": "best-destroyed-build/liam-gaff-late.jpeg"
+                }
+            ]
         }
     ]
 }

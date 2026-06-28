@@ -25,6 +25,8 @@
         --bg: rgb(5, 5, 5);
         --selected-option-color: rgb(255, 187, 69);
         --selected-option-color-glow: rgba(255, 221, 69, 0.422);
+        --selected-option-text-color: rgb(255, 197, 97);
+        --selected-option-text-secondary-color: rgb(110, 106, 100);
     }
     @supports (font-variation-settings: normal) {
         :root { font-family: InterVariable, sans-serif; }

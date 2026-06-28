@@ -21,9 +21,17 @@
     {/each}
 </div>
 
+<div class="ballot-navigation">
+
+</div>
+
 <style>
     .vote-options {
         display: flex;
         flex-direction: column;
+    }
+
+    .page-navigation {
+        margin: auto;
     }
 </style>
