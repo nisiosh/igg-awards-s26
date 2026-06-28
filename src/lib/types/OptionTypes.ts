@@ -8,6 +8,7 @@ export interface Ballot {
 
 export interface Category {
     title: string;
+    subtitle?: string;
     options: Option[];
 }
 

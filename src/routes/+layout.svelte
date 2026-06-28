@@ -43,4 +43,9 @@
         font-family: "Poppins";
     }
 
+    :global(small) {
+        font-size: 0.8rem;
+        color: var(--secondary);
+    }
+
 </style>

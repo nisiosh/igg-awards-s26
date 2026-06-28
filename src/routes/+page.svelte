@@ -14,6 +14,7 @@
         <VoteOptions 
             options={category.options} 
             title={category.title}
+            subtitle={category.subtitle}
             assetPath={ballot.assetPath}
             marginTop={i == 0 ? "" : "5rem"}
         />

@@ -2,14 +2,18 @@
     import Card from "$lib/components/Card.svelte";
     import type { Option } from "$lib/types/OptionTypes.js";
     let selected = $state<number>();
-    let { title, options, assetPath, marginTop }: { 
+    let { title, subtitle, options, assetPath, marginTop }: { 
         title: string,
+        subtitle?: string,
         options: Option[], 
         assetPath: string, 
         marginTop?: string } = $props();
 </script>
 
-<h1 class="award-title poppins" style:margin-top={marginTop}>{title}</h1>
+<div class="award-title-container">
+    <h1 class="award-title poppins" style:margin-top={marginTop}>{title}</h1>
+    {#if subtitle} <small class="award-subtitle">{subtitle}</small> {/if}
+</div>
 
 <div class="cards">
     {#each options as option, i }
@@ -28,6 +32,19 @@
     .award-title {
         text-align: center;
         font-weight: 600;
+        margin: 0;
+    }
+
+    .award-subtitle {
+        text-align: center;
+        width: 100%;
+    }
+
+    .award-title-container {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .cards {

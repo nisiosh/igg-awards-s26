@@ -97,7 +97,7 @@
     </button>
     <p class="option-name">{name}</p>
     {#if creator !== undefined}
-        <p class="creator">{creator}</p>
+        <small class="creator">{creator}</small>
     {/if}
 </div>
 
@@ -153,7 +153,5 @@
     .creator {
         margin: 0;
         margin-top: 0.1rem;
-        font-size: 0.8rem;
-        color: var(--secondary);
     }
 </style>
