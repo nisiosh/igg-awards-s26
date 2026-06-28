@@ -29,7 +29,7 @@
         },
         {
             "title": "Best Armor Trim",
-            "subtitle": "Drag the trims to rotate them",
+            "subtitle": "Drag a trim to rotate it",
             "options": [
                 {
                     "name": "Coast, Snout, Host, Bolt",
@@ -47,8 +47,13 @@
                     "asset": "best-trim/pat.trim.json"
                 },
                 {
-                    "name": "Coast, Snout, Host, Bolt",
-                    "creator": "Dima / Liam",
+                    "name": "Silence",
+                    "creator": "Liam",
+                    "asset": "best-trim/liam.trim.json"
+                },
+                {
+                    "name": "Flow",
+                    "creator": "Dima",
                     "asset": "best-trim/dima.trim.json"
                 }
             ]
