@@ -1,0 +1,7 @@
+{
+    "armor_material": "netherite",
+    "helmet": { "trim": "silence", "material": "gold" },
+    "chestplate": { "trim": "silence", "material": "gold" },
+    "leggings": { "trim": "silence", "material": "gold" },
+    "boots": { "trim": "silence", "material": "gold" }
+}
