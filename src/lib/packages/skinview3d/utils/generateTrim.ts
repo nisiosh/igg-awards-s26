@@ -1,9 +1,11 @@
 import type { ArmorTrim } from "./types.ts";
 
-export default async function generateTrim(armorSrc: string, trimData: ArmorTrim): Promise<HTMLCanvasElement> {
+export default async function generateTrim(armorMaterial: string, trimData: ArmorTrim): Promise<HTMLCanvasElement> {
     const armorImage = new Image();
     armorImage.crossOrigin = "anonymous";
-    armorImage.src = armorSrc;
+    armorImage.src = trimData.armor == "leggings" 
+        ? `/trims/armor/${armorMaterial}_layer_2.png`
+        : `/trims/armor/${armorMaterial}_layer_1.png`;
     await armorImage.decode();
 
     const trimImage = new Image();
@@ -13,6 +15,7 @@ export default async function generateTrim(armorSrc: string, trimData: ArmorTrim
         : `/trims/design/trim_main/${trimData.trim}.png`;
     await trimImage.decode();
 
+    const paletteName = resolvePaletteName(trimData.material, armorMaterial);
     const trimCanvas = await recolorTrim(
         trimImage,
         "/trims/palettes/trim_palette.png",
@@ -77,6 +80,20 @@ async function loadPalette(src: string): Promise<[number, number, number, number
         colors.push([data[i], data[i + 1], data[i + 2], data[i + 3]]);
     }
     return colors;
+}
+
+const DARKER_OVERRIDES: Record<string, string> = {
+    iron: "iron_darker",
+    gold: "gold_darker",
+    diamond: "diamond_darker",
+    netherite: "netherite_darker",
+};
+
+function resolvePaletteName(trimMaterial: string, armorMaterial: string): string {
+    if (trimMaterial === armorMaterial && DARKER_OVERRIDES[trimMaterial]) {
+        return DARKER_OVERRIDES[trimMaterial];
+    }
+    return trimMaterial;
 }
 
 async function recolorTrim(

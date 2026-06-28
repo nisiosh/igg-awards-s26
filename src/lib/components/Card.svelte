@@ -25,10 +25,10 @@
             skin: "/trims/skins/steve.png",
         });
         (async () => {
-            let trimMain = await generateTrim("/trims/armor/netherite_layer_1.png", {
+            let trimMain = await generateTrim("netherite", {
                 armor: "helmet", trim: "bolt", material: "amethyst"
             });
-            let trimLeggings = await generateTrim("/trims/armor/netherite_layer_2.png", {
+            let trimLeggings = await generateTrim("netherite", {
                 armor: "leggings", trim: "bolt", material: "amethyst"
             });
             const netheriteArmor = new ArmorType(trimMain, trimLeggings);
