@@ -29,6 +29,7 @@
         }
     });
 
+    const VIEWER_GUTTER_SIZE = 25;
     let canvas: HTMLCanvasElement | undefined = $state();
     let viewer: SkinViewer | undefined;
 
@@ -44,7 +45,7 @@
 
             viewer = new SkinViewer({
                 canvas,
-                width: parent.clientWidth,
+                width: parent.clientWidth - (VIEWER_GUTTER_SIZE * 2),
                 height: parent.clientHeight,
                 skin: trimData.skin ? `/trims/skins/${trimData.skin}.png` : "/trims/skins/steve.png",
             });
@@ -74,7 +75,7 @@
 
         const resizeObserver = new ResizeObserver(() => {
             if (!viewer) return;
-            viewer.width = parent.clientWidth - 40;
+            viewer.width = parent.clientWidth - (VIEWER_GUTTER_SIZE * 2);
             viewer.height = parent.clientHeight;
         });
         resizeObserver.observe(parent);
@@ -129,6 +130,7 @@
                 onmousedown={trimCanvasMouseDown} 
                 onmouseup={trimCanvasMouseUp}
                 onmouseleave={trimCanvasMouseLeave}
+                style:width={`calc(100% - ${VIEWER_GUTTER_SIZE * 2}px)`}
                 bind:this={canvas}
                 ></canvas>
         {/if}
@@ -185,7 +187,6 @@
 
     .option-button canvas {
         height: 25rem;
-        width: calc(100% - 40px);
         min-height: 0;
     }
 
