@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Card from "$lib/components/Card.svelte";
+    import TrimVoteOptions from "$lib/components/TrimVoteOptions.svelte";
     import VoteOptions from "$lib/components/VoteOptions.svelte";
     import type { Ballot } from "$lib/types/OptionTypes.js";
 
@@ -19,6 +21,10 @@
         />
     {/each}
 </div>
+
+<TrimVoteOptions
+    title={"Best Armour Trim"}
+ />
 
 <style>
     .vote-options {
