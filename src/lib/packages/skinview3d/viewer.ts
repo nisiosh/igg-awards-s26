@@ -889,7 +889,7 @@ export class SkinViewer {
 		this.resetCape();
 		this.resetEars();
 		this.background = null;
-		(this.fxaaPass.fsQuad as FullScreenQuad).dispose();
+		(this.fxaaPass.fsQuad as FullScreenQuad | undefined)?.dispose();
 	}
 
 	get disposed(): boolean {

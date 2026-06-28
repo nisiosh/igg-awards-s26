@@ -1,13 +1,10 @@
 <script lang="ts">
     import VoteOptions from "$lib/components/VoteOptions.svelte";
-    import type { Ballot } from "$lib/types/OptionTypes.js";
 
-    let { data }: { data: { minecraftBallot: Ballot } } = $props();
+    let { data } = $props();
 
-    const ballot = $derived(data.minecraftBallot);
+    const ballot = $derived(data.ballot);
 </script>
-
-
 
 <div class="vote-options">
     {#each ballot.categories as category, i}
@@ -22,7 +19,10 @@
 </div>
 
 <div class="ballot-navigation">
-
+    <a class="button secondary" data-enabled={data.previous !== null} href={`/${data.previous}`}>Back</a>
+    <a class="button" href={data.next !== null ? `/${data.next}` : `/submit`}>
+        {data.next !== null ? "Next" : "Complete"}
+    </a>
 </div>
 
 <style>
@@ -31,7 +31,16 @@
         flex-direction: column;
     }
 
-    .page-navigation {
-        margin: auto;
+    .ballot-navigation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10rem;
+        gap: 0.3rem;
+    }
+
+    .button[data-enabled=false] {
+        opacity: 0;
+        pointer-events: none;
     }
 </style>

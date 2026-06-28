@@ -17,10 +17,12 @@
 
 <style>
     :root {
+        box-sizing: border-box;
         font-family: "Poppins", Inter, sans-serif;
         font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
         scrollbar-color: rgb(191, 191, 191) transparent;
         --primary: rgb(250, 250, 250);
+        --primary-dark: rgb(10, 10, 10);
         --secondary: rgb(100, 100, 100);
         --bg: rgb(5, 5, 5);
         --selected-option-color: rgb(255, 187, 69);
@@ -48,6 +50,31 @@
     :global(small) {
         font-size: 0.8rem;
         color: var(--secondary);
+    }
+
+    :global(button, .button) {
+        border-radius: 0;
+        border: none;
+        background-color: var(--primary);
+        color: var(--primary-dark);
+        padding: 0.6rem 0.8rem;
+        cursor: pointer;
+        font-weight: 500;
+        box-shadow: rgba(255, 255, 255, 1%) 0px 0px 15px 2px;
+        text-decoration: none;
+    }
+
+    :global(button:hover, .button:hover) {
+        box-shadow: rgba(255, 255, 255, 20%) 0px 0px 15px 2px;
+        transition: box-shadow 100ms linear;
+    }
+
+    :global(button.secondary, .button.secondary) {
+        border: 1px solid var(--primary);
+        background-color: transparent;
+        color: var(--primary);
+        padding: calc(0.6rem - 1px) calc(0.8rem - 1px);
+        font-weight: 400;
     }
 
 </style>
