@@ -1,0 +1,31 @@
+{
+    "name": "Minecraft / Gastropolis",
+    "assetPath": "minecraft",
+    "categories": [
+        {
+            "title": "Best View",
+            "options": [
+                {
+                    "name": "Circle K Tower Stocks Room",
+                    "creator": "Pat",
+                    "asset": "best-place-faded/circle-k-tower-stocks.jpeg"
+                },
+                {
+                    "name": "IGG Towers Penthouse Balcony",
+                    "creator": "Shan",
+                    "asset": "best-place-faded/igg-tower-top.jpeg"
+                },
+                {
+                    "name": "IGG Gaff Balcony",
+                    "creator": "Liam, Dima, Shan, Pat, Kingers",
+                    "asset": "best-place-faded/igg-gaff-balcony.jpeg"
+                },
+                {
+                    "name": "Patville Barn",
+                    "creator": "Pat",
+                    "asset": "best-place-faded/patville-barn.jpeg"
+                }
+            ]
+        }
+    ]
+}
