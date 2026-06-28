@@ -74,7 +74,7 @@
 
         const resizeObserver = new ResizeObserver(() => {
             if (!viewer) return;
-            viewer.width = parent.clientWidth - 20;
+            viewer.width = parent.clientWidth - 40;
             viewer.height = parent.clientHeight;
         });
         resizeObserver.observe(parent);
@@ -184,8 +184,8 @@
     }
 
     .option-button canvas {
-        height: 30rem;
-        width: calc(100% - 20px);
+        height: 25rem;
+        width: calc(100% - 40px);
         min-height: 0;
     }
 
