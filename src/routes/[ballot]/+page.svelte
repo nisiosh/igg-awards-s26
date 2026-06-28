@@ -21,7 +21,7 @@
 <div class="ballot-navigation">
     <a class="button secondary" data-enabled={data.previous !== null} href={`/${data.previous}`}>Back</a>
     <a class="button" href={data.next !== null ? `/${data.next}` : `/submit`}>
-        {data.next !== null ? "Next" : "Complete"}
+        {data.next !== null ? "Next" : "Submit"}
     </a>
 </div>
 
