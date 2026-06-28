@@ -32,9 +32,9 @@
             "subtitle": "Drag a trim to rotate it",
             "options": [
                 {
-                    "name": "Coast, Snout, Host, Bolt",
-                    "creator": "Shan",
-                    "asset": "best-trim/shan.trim.json"
+                    "name": "Silence",
+                    "creator": "Liam",
+                    "asset": "best-trim/liam.trim.json"
                 },
                 {
                     "name": "Sentry, Snout, Sentry, Dune",
@@ -47,9 +47,9 @@
                     "asset": "best-trim/pat.trim.json"
                 },
                 {
-                    "name": "Silence",
-                    "creator": "Liam",
-                    "asset": "best-trim/liam.trim.json"
+                    "name": "Coast, Snout, Host, Bolt",
+                    "creator": "Shan",
+                    "asset": "best-trim/shan.trim.json"
                 },
                 {
                     "name": "Flow",
