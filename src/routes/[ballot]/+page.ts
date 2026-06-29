@@ -9,7 +9,6 @@ const byName: Record<string, () => Promise<{ default: Ballot }>> = {};
 for (const path in modules) {
     byName[path.split('/').pop()!] = modules[path] as () => Promise<{ default: Ballot }>;
 }
-console.log(Object.keys(byName))
 
 function stripExtension(fileName: string) {
     return fileName.replace(/\.json$/, '');
