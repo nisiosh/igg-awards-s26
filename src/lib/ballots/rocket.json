@@ -3,8 +3,9 @@
     "assetPath": "rocket",
     "categories": [
         {
-            "title": "WIP",
-            "options": []
+            "name": "",
+            "creator": "",
+            "asset": ""
         }
     ]
 }
