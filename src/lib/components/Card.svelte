@@ -18,14 +18,16 @@
         name: string;
         creator?: string;
         selected: boolean;
-        onclick?: () => {};
+        onclick?: () => void;
     } = $props();
-    let assetType: "img" | "trim" | undefined = $state();
+    let assetType: "image" | "trim" | "video" | undefined = $state();
     $effect(() => {
         if (asset.endsWith(".trim.json")) {
             assetType = "trim";
+        } else if (asset.endsWith(".mp4")) {
+            assetType = "video";
         } else {
-            assetType = "img";
+            assetType = "image";
         }
     });
 
@@ -123,8 +125,15 @@
 
 <div class="card" class:selected data-asset-type={assetType}>
     <button class="option-button" title={`Vote ${name}${assetType==="trim" ? ` (${creator})` : ""}`} onclick={assetType==="trim" ? null : onclick}>
-        {#if assetType==="img"}
+        {#if assetType==="image"}
             <img src={asset} alt={asset} class="option-asset" />
+        {:else if assetType==="video"}
+            <video class="option-asset" preload="metadata" width={1920} height={1080}>
+                <source src={asset} type="video/mp4">
+            </video>
+            <div class="card-video-play-button" title="Play">
+                <img src="/site-assets/play-button.svg" alt="Play" />
+            </div>
         {:else if assetType==="trim"}
             <canvas 
                 onmousedown={trimCanvasMouseDown} 
@@ -162,6 +171,8 @@
         overflow: hidden;
         gap: 0.2em;
         padding: 0;
+
+        position: relative;
     }
     .card.selected .option-button {
         border: 1px solid var(--selected-option-color);
@@ -207,5 +218,28 @@
     }
     .card.selected .creator {
         color: var(--selected-option-text-secondary-color);
+    }
+
+    .card-video-play-button {
+        background-color: rgba(45, 45, 45, 0.8);
+        box-shadow: rgba(255, 255, 255, 5%) 0px 0px 15px 2px;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .card-video-play-button img {
+        width: 100%;
+        height: 100%;
+        margin-left: 0.8rem;
     }
 </style>

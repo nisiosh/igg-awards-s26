@@ -3,6 +3,31 @@
     "assetPath": "minecraft",
     "categories": [
         {
+            "title": "Video Test",
+            "options": [
+                {
+                    "name": "Gustavo Fring Death",
+                    "creator": "Vince Gilligan",
+                    "asset": "video-test.mp4"
+                },
+                {
+                    "name": "Hank Death",
+                    "creator": "Walter White",
+                    "asset": "video-test-2.mp4"
+                },
+                {
+                    "name": "Gustavo Fring Death",
+                    "creator": "Vince Gilligan",
+                    "asset": "video-test.mp4"
+                },
+                {
+                    "name": "Hank Death",
+                    "creator": "Walter White",
+                    "asset": "video-test-2.mp4"
+                }
+            ]
+        },
+        {
             "title": "Best View",
             "options": [
                 {
