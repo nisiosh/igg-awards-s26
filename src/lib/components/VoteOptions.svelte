@@ -31,7 +31,6 @@
 <style>
     .award-title {
         text-align: center;
-        font-weight: 600;
         margin: 0;
     }
 

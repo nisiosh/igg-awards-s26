@@ -6,6 +6,9 @@
     const ballot = $derived(data.ballot);
 </script>
 
+<h1 class="category-name">{ballot.name}</h1>
+<small class="category-subtitle">Hosted by Kreekcraft</small>
+
 <div class="vote-options">
     {#each ballot.categories as category, i}
         <VoteOptions 
@@ -26,6 +29,21 @@
 </div>
 
 <style>
+    .category-name {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 0;
+    }
+
+    .category-subtitle {
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        margin-top: 0.5rem;
+        margin-bottom: 3rem;
+    }
+
     .vote-options {
         display: flex;
         flex-direction: column;
