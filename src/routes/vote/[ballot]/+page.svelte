@@ -22,8 +22,8 @@
 </div>
 
 <div class="ballot-navigation">
-    <a class="button secondary" data-enabled={data.previous !== null} href={`/${data.previous}`}>Back</a>
-    <a class="button" href={data.next !== null ? `/${data.next}` : `/submit`}>
+    <a class="button secondary" data-enabled={data.previous !== null} href={`/vote/${data.previous}`}>Back</a>
+    <a class="button" href={data.next !== null ? `/vote/${data.next}` : `/submit`}>
         {data.next !== null ? "Next" : "Submit"}
     </a>
 </div>

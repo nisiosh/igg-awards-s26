@@ -18,7 +18,7 @@
 <div class="cards">
     {#each options as option, i }
         <Card 
-            asset={`nominee-assets/${assetPath}/${option.asset}`}
+            asset={`/nominee-assets/${assetPath}/${option.asset}`}
             name={option.name}
             creator={option.creator}
             selected={selected===i}
