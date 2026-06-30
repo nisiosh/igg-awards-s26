@@ -76,6 +76,41 @@
                     "asset": "rocket-scores/6-2.png"
                 }
             ]
+        },
+        {
+            "title": "Best Car Design",
+            "options": [
+                {
+                    "name": "Petreik_Nuggets",
+                    "creator": "Pat",
+                    "asset": "rocket-cars/pats-car.png"
+                },
+                {
+                    "name": "RubyPlayz64",
+                    "creator": "Dima",
+                    "asset": "rocket-cars/dimas-car.png"
+                },
+                {
+                    "name": "NisioIRL",
+                    "creator": "Oisin",
+                    "asset": "rocket-cars/liams-car.png"
+                },
+                {
+                    "name": "LiamDoerty",
+                    "creator": "Liam",
+                    "asset": "rocket-cars/liams-car.png"
+                },
+                {
+                    "name": "mastercormack",
+                    "creator": "JC",
+                    "asset": "rocket-cars/jcs-car.png"
+                },
+                {
+                    "name": "PistolWhip26509",
+                    "creator": "Kingers",
+                    "asset": "rocket-cars/kingerss-car.png"
+                }
+            ]
         }
     ]
 }
