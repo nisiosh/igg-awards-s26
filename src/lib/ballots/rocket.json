@@ -3,9 +3,79 @@
     "assetPath": "rocket",
     "categories": [
         {
-            "name": "",
-            "creator": "",
-            "asset": ""
+            "title": "Most Improved Player",
+            "options": [
+                {
+                    "name": "LiamDoerty",
+                    "creator": "Liam",
+                    "asset": "rocket-cars/liams-car.png"
+                },
+                {
+                    "name": "RubyPlayz64",
+                    "creator": "Dima",
+                    "asset": "rocket-cars/dimas-car.png"
+                },
+                {
+                    "name": "NisioIRL",
+                    "creator": "Shan",
+                    "asset": "rocket-cars/shans-car.png"
+                }
+            ]
+        },
+        {
+            "title": "Best Player",
+            "options": [
+                {
+                    "name": "Petreik_Nuggets",
+                    "creator": "Pat",
+                    "asset": "rocket-cars/pats-car.png"
+                },
+                {
+                    "name": "RubyPlayz64",
+                    "creator": "Dima",
+                    "asset": "rocket-cars/dimas-car.png"
+                },
+                {
+                    "name": "NisioIRL",
+                    "creator": "Oisin",
+                    "asset": "rocket-cars/liams-car.png"
+                },
+                {
+                    "name": "LiamDoerty",
+                    "creator": "Liam",
+                    "asset": "rocket-cars/liams-car.png"
+                },
+                {
+                    "name": "mastercormack",
+                    "creator": "JC",
+                    "asset": "rocket-cars/jcs-car.png"
+                },
+                {
+                    "name": "PistolWhip26509",
+                    "creator": "Kingers",
+                    "asset": "rocket-cars/kingerss-car.png"
+                }
+            ]
+        },
+        {
+            "title": "Best Match",
+            "options": [
+                {
+                    "name": "6 - 1",
+                    "creator": "Patrick vs Liam",
+                    "asset": "rocket-scores/6-1.png"
+                },
+                {
+                    "name": "12-3",
+                    "creator": "Patrick vs Joshua",
+                    "asset": "rocket-scores/12-3.png"
+                },
+                {
+                    "name": "6-2 (9-6 on Aggregate)",
+                    "creator": "Dima vs Shan IGG Cup Semi-Finals (March)",
+                    "asset": "rocket-scores/6-2.png"
+                }
+            ]
         }
     ]
 }

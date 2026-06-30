@@ -109,5 +109,10 @@ Each actual trim has 2 values: `trim` and `material`
  * `material` - The ore that decides the colour of the trim
 
 
+### Creating a new ballot
+If u wanna create a new ballot for whatever reason, its pretty simple. 
+
+Create a new json file in /ballots/, then add it to [/ballots/ballots.json](https://github.com/nisiosh/igg-awards-s26/blob/main/src/lib/ballots/ballots.json), which defines the order of all of the ballots. 
+
 ### Congrats
 You now know how to create and edit ballots for the summer 2026 igg awards! The site is still work in progress, so things will prob change and more things will be added.
